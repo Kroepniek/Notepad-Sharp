@@ -14,12 +14,13 @@ namespace NotepadSharp
 	{
 		List<Label> lblLineCountDmon = new List<Label>();
 		Color currentColorDmon = Color.FromArgb(46, 46, 46);
+		bool isTextSelectedDmon = false;
 
 		public frmMainDmon()
 		{
 			InitializeComponent();
 
-			for (int i = 1; i < 31; i++)
+			for (int i = 1; i < Math.Round((float)rtbMainNotepadDmon.Height/22); i++)
 			{
 				Label lblCreatingDmon = new Label();
 				lblCreatingDmon.Parent = pnlLineCountsDmon;
@@ -41,6 +42,11 @@ namespace NotepadSharp
 			Panel selectedColorDmon = sender as Panel;
 			currentColorDmon = selectedColorDmon.BackColor;
 			pcbCheckDmon.Parent = selectedColorDmon;
+
+			if (isTextSelectedDmon)
+			{
+				rtbMainNotepadDmon.SelectionBackColor = currentColorDmon;
+			}
 		}
 
 		private void Text_Writing(object sender, KeyEventArgs e)
@@ -50,6 +56,18 @@ namespace NotepadSharp
 				rtbMainNotepadDmon.SelectionStart = rtbMainNotepadDmon.TextLength;
 				rtbMainNotepadDmon.SelectionLength = 1;
 				rtbMainNotepadDmon.SelectionBackColor = currentColorDmon;
+			}
+		}
+
+		private void Selection_Changed(object sender, EventArgs e)
+		{
+			if (rtbMainNotepadDmon.SelectionLength > 0)
+			{
+				isTextSelectedDmon = true;
+			}
+			else
+			{
+				isTextSelectedDmon = false;
 			}
 		}
 	}

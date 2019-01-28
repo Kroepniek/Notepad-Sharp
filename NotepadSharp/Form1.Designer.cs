@@ -61,6 +61,7 @@
 			this.rtbMainNotepadDmon.Size = new System.Drawing.Size(762, 414);
 			this.rtbMainNotepadDmon.TabIndex = 0;
 			this.rtbMainNotepadDmon.Text = "";
+			this.rtbMainNotepadDmon.SelectionChanged += new System.EventHandler(this.Selection_Changed);
 			this.rtbMainNotepadDmon.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Text_Writing);
 			// 
 			// mnsMenuDmon
