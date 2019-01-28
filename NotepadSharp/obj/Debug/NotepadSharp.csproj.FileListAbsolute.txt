@@ -1,0 +1,10 @@
+C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\bin\Debug\NotepadSharp.exe.config
+C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\bin\Debug\NotepadSharp.exe
+C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\bin\Debug\NotepadSharp.pdb
+C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.frmMainDmon.resources
+C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.Properties.Resources.resources
+C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.csproj.GenerateResource.cache
+C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.csproj.CoreCompileInputs.cache
+C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.exe
+C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.pdb
+C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.csprojAssemblyReference.cache
