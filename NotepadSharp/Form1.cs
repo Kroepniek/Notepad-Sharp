@@ -12,29 +12,12 @@ namespace NotepadSharp
 {
 	public partial class frmMainDmon : Form
 	{
-		List<Label> lblLineCountDmon = new List<Label>();
 		Color currentColorDmon = Color.FromArgb(46, 46, 46);
 		bool isTextSelectedDmon = false;
 
 		public frmMainDmon()
 		{
 			InitializeComponent();
-
-			for (int i = 1; i < Math.Round((float)rtbMainNotepadDmon.Height/22); i++)
-			{
-				Label lblCreatingDmon = new Label();
-				lblCreatingDmon.Parent = pnlLineCountsDmon;
-				lblCreatingDmon.Name = "lblLineCount_" + i.ToString() + "_Dmon";
-				lblCreatingDmon.Font = new Font("Trebuchet MS", 12);
-				lblCreatingDmon.ForeColor = Color.FromArgb(184, 184, 184);
-				lblCreatingDmon.AutoSize = false;
-				lblCreatingDmon.Size = new Size(30, 20);
-				lblCreatingDmon.Text = i.ToString();
-				lblCreatingDmon.TextAlign = ContentAlignment.MiddleRight;
-				lblCreatingDmon.Location = new Point(0, -18 + i*22);
-
-				lblLineCountDmon.Add(lblCreatingDmon);
-			}
 		}
 
 		private void Color_Change(object sender, MouseEventArgs e)
@@ -49,9 +32,39 @@ namespace NotepadSharp
 			}
 		}
 
-		private void Text_Writing(object sender, KeyEventArgs e)
+		private void Color_Hover(object sender, EventArgs e)
 		{
-			if (rtbMainNotepadDmon.TextLength > 0)
+			Panel mouseOnColorDmon = sender as Panel;
+			Color tempBgColor = mouseOnColorDmon.BackColor;
+			mouseOnColorDmon.BackColor = Color.FromArgb(tempBgColor.R + 23, tempBgColor.G + 23, tempBgColor.B + 23);
+		}
+
+		private void Color_NoMoreHover(object sender, EventArgs e)
+		{
+			Panel mouseOnColorDmon = sender as Panel;
+			Color tempBgColor = mouseOnColorDmon.BackColor;
+			mouseOnColorDmon.BackColor = Color.FromArgb(tempBgColor.R - 23, tempBgColor.G - 23, tempBgColor.B - 23);
+		}
+
+		private void ColorCheck_Hover(object sender, EventArgs e)
+		{
+			PictureBox mouseOnColorDmon = sender as PictureBox;
+			Panel parentPanel = mouseOnColorDmon.Parent as Panel;
+			Color tempBgColor = mouseOnColorDmon.BackColor;
+			parentPanel.BackColor = Color.FromArgb(tempBgColor.R + 23, tempBgColor.G + 23, tempBgColor.B + 23);
+		}
+
+		private void ColorCheck_NoMoreHover(object sender, EventArgs e)
+		{
+			PictureBox mouseOnColorDmon = sender as PictureBox;
+			Panel parentPanel = mouseOnColorDmon.Parent as Panel;
+			Color tempBgColor = mouseOnColorDmon.BackColor;
+			parentPanel.BackColor = Color.FromArgb(tempBgColor.R - 23, tempBgColor.G - 23, tempBgColor.B - 23);
+		}
+
+		private void Text_Writing(object sender, KeyPressEventArgs e)
+		{
+			if (rtbMainNotepadDmon.TextLength >= 0)
 			{
 				rtbMainNotepadDmon.SelectionStart = rtbMainNotepadDmon.TextLength;
 				rtbMainNotepadDmon.SelectionLength = 1;
@@ -69,6 +82,11 @@ namespace NotepadSharp
 			{
 				isTextSelectedDmon = false;
 			}
+		}
+
+		private void Form_Resize(object sender, EventArgs e)
+		{
+			rtbMainNotepadDmon.Size = new Size(this.Width - 54, this.Height - 75);
 		}
 	}
 }

@@ -8,3 +8,13 @@ C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\
 C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.exe
 C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.pdb
 C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.csprojAssemblyReference.cache
+H:\Daniel\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\bin\Debug\NotepadSharp.exe.config
+H:\Daniel\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\bin\Debug\NotepadSharp.exe
+H:\Daniel\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\bin\Debug\NotepadSharp.pdb
+H:\Daniel\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.csprojAssemblyReference.cache
+H:\Daniel\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.frmMainDmon.resources
+H:\Daniel\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.Properties.Resources.resources
+H:\Daniel\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.csproj.GenerateResource.cache
+H:\Daniel\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.csproj.CoreCompileInputs.cache
+H:\Daniel\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.exe
+H:\Daniel\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.pdb
