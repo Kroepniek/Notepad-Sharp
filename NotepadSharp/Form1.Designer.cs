@@ -113,7 +113,7 @@
 			this.tsiZoomDmon.ForeColor = System.Drawing.Color.White;
 			this.tsiZoomDmon.Name = "tsiZoomDmon";
 			this.tsiZoomDmon.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Z)));
-			this.tsiZoomDmon.Size = new System.Drawing.Size(146, 22);
+			this.tsiZoomDmon.Size = new System.Drawing.Size(180, 22);
 			this.tsiZoomDmon.Text = "Zoom";
 			// 
 			// xZoomToolStripMenuItem
@@ -122,8 +122,10 @@
 			this.xZoomToolStripMenuItem.ForeColor = System.Drawing.Color.White;
 			this.xZoomToolStripMenuItem.Name = "xZoomToolStripMenuItem";
 			this.xZoomToolStripMenuItem.ShowShortcutKeys = false;
-			this.xZoomToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+			this.xZoomToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.xZoomToolStripMenuItem.Tag = "1";
 			this.xZoomToolStripMenuItem.Text = "1x zoom";
+			this.xZoomToolStripMenuItem.Click += new System.EventHandler(this.Zoom_Changed);
 			// 
 			// xZoomToolStripMenuItem1
 			// 
@@ -131,8 +133,10 @@
 			this.xZoomToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
 			this.xZoomToolStripMenuItem1.Name = "xZoomToolStripMenuItem1";
 			this.xZoomToolStripMenuItem1.ShowShortcutKeys = false;
-			this.xZoomToolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
+			this.xZoomToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+			this.xZoomToolStripMenuItem1.Tag = "1,5";
 			this.xZoomToolStripMenuItem1.Text = "1.5x zoom";
+			this.xZoomToolStripMenuItem1.Click += new System.EventHandler(this.Zoom_Changed);
 			// 
 			// xZoomToolStripMenuItem2
 			// 
@@ -140,8 +144,10 @@
 			this.xZoomToolStripMenuItem2.ForeColor = System.Drawing.Color.White;
 			this.xZoomToolStripMenuItem2.Name = "xZoomToolStripMenuItem2";
 			this.xZoomToolStripMenuItem2.ShowShortcutKeys = false;
-			this.xZoomToolStripMenuItem2.Size = new System.Drawing.Size(127, 22);
+			this.xZoomToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+			this.xZoomToolStripMenuItem2.Tag = "2";
 			this.xZoomToolStripMenuItem2.Text = "2x zoom";
+			this.xZoomToolStripMenuItem2.Click += new System.EventHandler(this.Zoom_Changed);
 			// 
 			// xZoomToolStripMenuItem3
 			// 
@@ -149,8 +155,10 @@
 			this.xZoomToolStripMenuItem3.ForeColor = System.Drawing.Color.White;
 			this.xZoomToolStripMenuItem3.Name = "xZoomToolStripMenuItem3";
 			this.xZoomToolStripMenuItem3.ShowShortcutKeys = false;
-			this.xZoomToolStripMenuItem3.Size = new System.Drawing.Size(127, 22);
+			this.xZoomToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+			this.xZoomToolStripMenuItem3.Tag = "3";
 			this.xZoomToolStripMenuItem3.Text = "3x zoom";
+			this.xZoomToolStripMenuItem3.Click += new System.EventHandler(this.Zoom_Changed);
 			// 
 			// tsmViewDmon
 			// 
@@ -216,8 +224,8 @@
 			this.rtbMainNotepadDmon.TabIndex = 2;
 			this.rtbMainNotepadDmon.Text = "";
 			this.rtbMainNotepadDmon.SelectionChanged += new System.EventHandler(this.Selection_Changed);
+			this.rtbMainNotepadDmon.TextChanged += new System.EventHandler(this.Text_Written);
 			this.rtbMainNotepadDmon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Text_Writing);
-			this.rtbMainNotepadDmon.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Text_Written);
 			// 
 			// pnlColorAquaDmon
 			// 

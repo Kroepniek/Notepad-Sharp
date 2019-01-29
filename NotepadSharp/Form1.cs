@@ -99,7 +99,7 @@ namespace NotepadSharp
 				rtbMainNotepadDmon.SelectionLength = txt.Length;
 				rtbMainNotepadDmon.SelectionColor = clr;
 				rtbMainNotepadDmon.SelectionStart = rtbMainNotepadDmon.TextLength;
-				rtbMainNotepadDmon.SelectionLength = 1;
+				rtbMainNotepadDmon.SelectionLength = 0;
 				rtbMainNotepadDmon.SelectionColor = Color.White;
 			}
 		}
@@ -184,22 +184,23 @@ namespace NotepadSharp
 
 		private void Text_Writing(object sender, KeyPressEventArgs e)
 		{
+			if (e.KeyChar == 8)
+			{
+				rtbMainNotepadDmon.SelectionStart = rtbMainNotepadDmon.TextLength;
+				rtbMainNotepadDmon.SelectionLength = 0;
+				rtbMainNotepadDmon.SelectionColor = Color.White;
+			}
+
 			if (rtbMainNotepadDmon.TextLength >= 0)
 			{
 				rtbMainNotepadDmon.SelectionStart = rtbMainNotepadDmon.TextLength;
-				rtbMainNotepadDmon.SelectionLength = 1;
+				rtbMainNotepadDmon.SelectionLength = 0;
 				rtbMainNotepadDmon.SelectionBackColor = currentColorDmon;
 			}
 		}
 
-		private void Text_Written(object sender, KeyEventArgs e)
+		private void Text_Written(object sender, EventArgs e)
 		{
-			if (e.KeyCode == Keys.Back)
-			{
-				rtbMainNotepadDmon.SelectionStart = rtbMainNotepadDmon.TextLength;
-				rtbMainNotepadDmon.SelectionLength = 1;
-				rtbMainNotepadDmon.SelectionColor = Color.White;
-			}
 			foreach (Tuple<string, int, int, int> item in specialTextsDmon)
 			{
 				FindSpecialText(item.Item1, Color.FromArgb(item.Item2, item.Item3, item.Item4));
@@ -262,6 +263,14 @@ namespace NotepadSharp
 			}
 
 			SaveSpecialText();
+		}
+
+		private void Zoom_Changed(object sender, EventArgs e)
+		{
+			ToolStripItem currentItem = sender as ToolStripItem;
+			float zoom = float.Parse(currentItem.Tag.ToString());
+
+			rtbMainNotepadDmon.ZoomFactor = zoom;
 		}
 	}
 }
