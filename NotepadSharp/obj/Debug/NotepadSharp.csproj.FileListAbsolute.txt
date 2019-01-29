@@ -18,3 +18,9 @@ H:\Daniel\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\Notep
 H:\Daniel\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.csproj.CoreCompileInputs.cache
 H:\Daniel\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.exe
 H:\Daniel\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.pdb
+C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.frmAddSpecialTextDmon.resources
+C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.frmShowSpecialTextDmon.resources
+C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.csproj.CopyComplete
