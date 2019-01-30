@@ -12,15 +12,26 @@ namespace NotepadSharp
 		Color currentColorDmon = Color.FromArgb(46, 46, 46);
 		bool isTextSelectedDmon = false;
 		public static List<Tuple<string, int, int, int>> specialTextsDmon = new List<Tuple<string, int, int, int>>();
+
+		public static List<Tuple<string, Color, bool>> defaultSpecialTexts = new List<Tuple<string, Color, bool>>();
+		static string[] varNamesDmon = new string[] { "var", "string", "int", "bool", "long", "unsigned", "signed", "decimal", "double", "float", "new" };
+
 		frmAddSpecialTextDmon frmAddSpecialTextDmon = new frmAddSpecialTextDmon();
 		frmShowSpecialTextDmon frmShowSpecialTextDmon = new frmShowSpecialTextDmon();
+		frmSearchDmon frmSearchDmon = new frmSearchDmon();
+
+		static RichTextBox rtbCurrentDmon = new RichTextBox();
 
 		public frmMainDmon()
 		{
 			InitializeComponent();
 			pcbCheckDmon.Parent = pnlColorNoneDmon;
 			mnsMenuDmon.Renderer = new Arrow();
+			defaultSpecialTexts.Add(new Tuple<string, Color, bool>("digits", Color.Crimson, true));
+			defaultSpecialTexts.Add(new Tuple<string, Color, bool>("variables", Color.RoyalBlue, true));
 			LoadSpecialText();
+			rtbMainNotepadDmon.MouseWheel += new MouseEventHandler(Scroll_Move);
+			rtbCurrentDmon = rtbMainNotepadDmon;
 		}
 
 		public class RootObject
@@ -91,16 +102,96 @@ namespace NotepadSharp
 
 		#endregion
 
-		public void FindSpecialText(string txt, Color clr)
+		public void DefaultSpecialText()
 		{
-			if (rtbMainNotepadDmon.Text.Contains(txt) || rtbMainNotepadDmon.Text.LastIndexOf(txt) > rtbMainNotepadDmon.Text.IndexOf(txt))
+			if (rtbCurrentDmon.Text.Length > 0)
 			{
-				rtbMainNotepadDmon.SelectionStart = rtbMainNotepadDmon.Text.LastIndexOf(txt);
-				rtbMainNotepadDmon.SelectionLength = txt.Length;
-				rtbMainNotepadDmon.SelectionColor = clr;
-				rtbMainNotepadDmon.SelectionStart = rtbMainNotepadDmon.TextLength;
-				rtbMainNotepadDmon.SelectionLength = 0;
-				rtbMainNotepadDmon.SelectionColor = Color.White;
+				foreach (Tuple<string, Color, bool> item in defaultSpecialTexts)
+				{
+					if (item.Item3)
+					{
+						switch (item.Item1)
+						{
+							case "digits":
+								int res = 0;
+								bool ok = int.TryParse(rtbCurrentDmon.Text[rtbCurrentDmon.Text.Length - 1].ToString(), out res);
+								if (ok)
+								{
+									rtbCurrentDmon.SelectionStart = rtbCurrentDmon.Text.LastIndexOf(res.ToString());
+									rtbCurrentDmon.SelectionLength = res.ToString().Length;
+									rtbCurrentDmon.SelectionColor = item.Item2;
+									rtbCurrentDmon.SelectionStart = rtbCurrentDmon.TextLength;
+									rtbCurrentDmon.SelectionLength = 0;
+									rtbCurrentDmon.SelectionColor = Color.White;
+								}
+								break;
+							case "variables":
+								foreach (string varName in varNamesDmon)
+								{
+									if (rtbCurrentDmon.Text.Contains(varName) || rtbCurrentDmon.Text.LastIndexOf(varName) > rtbCurrentDmon.Text.IndexOf(varName))
+									{
+										rtbCurrentDmon.SelectionStart = rtbCurrentDmon.Text.LastIndexOf(varName);
+										rtbCurrentDmon.SelectionLength = varName.Length;
+										rtbCurrentDmon.SelectionColor = item.Item2;
+										rtbCurrentDmon.SelectionStart = rtbCurrentDmon.TextLength;
+										rtbCurrentDmon.SelectionLength = 0;
+										rtbCurrentDmon.SelectionColor = Color.White;
+									}
+								}
+								break;
+						}
+					}
+				}
+			}
+		}
+
+		public static void DefaultSpecialTextTurning(int index, bool turnState)
+		{
+			switch (defaultSpecialTexts[index].Item1)
+			{
+				case "digits":
+					for (int i = 0; i < rtbCurrentDmon.Text.Length; i++)
+					{
+						int res = 0;
+						bool ok = int.TryParse(rtbCurrentDmon.Text[i].ToString(), out res);
+						if (ok)
+						{
+							rtbCurrentDmon.SelectionStart = i;
+							rtbCurrentDmon.SelectionLength = res.ToString().Length;
+							rtbCurrentDmon.SelectionColor = (turnState ? defaultSpecialTexts[index].Item2 : Color.White);
+							rtbCurrentDmon.SelectionStart = rtbCurrentDmon.TextLength;
+							rtbCurrentDmon.SelectionLength = 0;
+							rtbCurrentDmon.SelectionColor = Color.White;
+						}
+					}
+					break;
+				case "variables":
+					foreach (string varName in varNamesDmon)
+					{
+						for (int i = rtbCurrentDmon.Text.IndexOf(varName); i > -1; i = rtbCurrentDmon.Text.IndexOf(varName, i + 1))
+						{
+							rtbCurrentDmon.SelectionStart = i;
+							rtbCurrentDmon.SelectionLength = varName.Length;
+							rtbCurrentDmon.SelectionColor = (turnState ? defaultSpecialTexts[index].Item2 : Color.White);
+							rtbCurrentDmon.SelectionStart = rtbCurrentDmon.TextLength;
+							rtbCurrentDmon.SelectionLength = 0;
+							rtbCurrentDmon.SelectionColor = Color.White;
+						}
+					}
+					break;
+			}
+		}
+
+		public static void FindSpecialText(string txt, Color clr)
+		{
+			if (rtbCurrentDmon.Text.Contains(txt) || rtbCurrentDmon.Text.LastIndexOf(txt) > rtbCurrentDmon.Text.IndexOf(txt))
+			{
+				rtbCurrentDmon.SelectionStart = rtbCurrentDmon.Text.LastIndexOf(txt);
+				rtbCurrentDmon.SelectionLength = txt.Length;
+				rtbCurrentDmon.SelectionColor = clr;
+				rtbCurrentDmon.SelectionStart = rtbCurrentDmon.TextLength;
+				rtbCurrentDmon.SelectionLength = 0;
+				rtbCurrentDmon.SelectionColor = Color.White;
 			}
 		}
 
@@ -205,23 +296,19 @@ namespace NotepadSharp
 			{
 				FindSpecialText(item.Item1, Color.FromArgb(item.Item2, item.Item3, item.Item4));
 			}
+
+			DefaultSpecialText();
+			frmSearchDmon.rtbCurrentDmon = rtbMainNotepadDmon;
 		}
 
 		private void Selection_Changed(object sender, EventArgs e)
 		{
-			if (rtbMainNotepadDmon.SelectionLength > 0)
-			{
-				isTextSelectedDmon = true;
-			}
-			else
-			{
-				isTextSelectedDmon = false;
-			}
+			isTextSelectedDmon = (rtbMainNotepadDmon.SelectionLength > 0 ? true : false);
 		}
 
 		private void Form_Resize(object sender, EventArgs e)
 		{
-			rtbMainNotepadDmon.Size = new Size(this.Width - 54, this.Height - 75);
+
 		}
 
 		private void AddNewSpecialText_Click(object sender, EventArgs e)
@@ -271,6 +358,55 @@ namespace NotepadSharp
 			float zoom = float.Parse(currentItem.Tag.ToString());
 
 			rtbMainNotepadDmon.ZoomFactor = zoom;
+		}
+
+		private void TurningSpecialText_CheckedChanged(object sender, EventArgs e)
+		{
+			ToolStripMenuItem currentItemDmon = sender as ToolStripMenuItem;
+			int indexInList = int.Parse(currentItemDmon.Tag.ToString());
+			bool newBoolState = (currentItemDmon.Checked ? true : false);
+
+			defaultSpecialTexts[indexInList] = new Tuple<string, Color, bool>(defaultSpecialTexts[indexInList].Item1, defaultSpecialTexts[indexInList].Item2, newBoolState);
+			DefaultSpecialTextTurning(indexInList, newBoolState);
+		}
+
+		private void Scroll_Move(object sender, MouseEventArgs e)
+		{
+			//Add numbers on left side..
+		}
+
+		private void ShortCut_Down(object sender, KeyEventArgs e)
+		{
+			if ((Control.ModifierKeys & Keys.Control) == Keys.Control && e.KeyCode == Keys.A)
+			{
+				rtbMainNotepadDmon.SelectAll();
+				e.SuppressKeyPress = true;
+			}
+			else if ((Control.ModifierKeys & Keys.Control) == Keys.Control && e.KeyCode == Keys.D)
+			{
+				int firstCharDmon = rtbMainNotepadDmon.GetFirstCharIndexOfCurrentLine();
+				int currentLineDmon = rtbMainNotepadDmon.GetLineFromCharIndex(firstCharDmon);
+				string currentLineTextDmon = rtbMainNotepadDmon.Lines[currentLineDmon];
+				rtbMainNotepadDmon.Select(firstCharDmon, currentLineTextDmon.Length);
+			
+				rtbMainNotepadDmon.Copy();
+				rtbMainNotepadDmon.SelectionStart = currentLineTextDmon.Length;
+				rtbMainNotepadDmon.AppendText(Environment.NewLine);
+				rtbMainNotepadDmon.Paste();
+				e.SuppressKeyPress = true;
+			}
+			else if ((Control.ModifierKeys & Keys.Control) == Keys.Control && e.KeyCode == Keys.F)
+			{
+				try
+				{
+					frmSearchDmon.Show();
+				}
+				catch (Exception)
+				{
+					frmSearchDmon = new frmSearchDmon();
+					frmSearchDmon.Show();
+				}
+			}
 		}
 	}
 }

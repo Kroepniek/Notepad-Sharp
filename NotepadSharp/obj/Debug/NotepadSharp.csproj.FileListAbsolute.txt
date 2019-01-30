@@ -24,3 +24,4 @@ C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\
 C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\bin\Debug\Newtonsoft.Json.pdb
 C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\bin\Debug\Newtonsoft.Json.xml
 C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.csproj.CopyComplete
+C:\Users\mondz\OneDrive - ROC Ter AA\School\ApplicatieOntwikkelen\PROJECTS\MIJN\NotepadSharp\NotepadSharp\obj\Debug\NotepadSharp.frmSearchDmon.resources

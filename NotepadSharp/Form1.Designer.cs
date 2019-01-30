@@ -52,6 +52,8 @@
 			this.pnlColorRedDmon = new System.Windows.Forms.Panel();
 			this.pnlColorVioletDmon = new System.Windows.Forms.Panel();
 			this.pnlColorYellowDmon = new System.Windows.Forms.Panel();
+			this.tsmiDigitsSpecialTextDmon = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiVariablesSpecialTextDmon = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnsMenuDmon.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pcbCheckDmon)).BeginInit();
 			this.SuspendLayout();
@@ -122,7 +124,7 @@
 			this.xZoomToolStripMenuItem.ForeColor = System.Drawing.Color.White;
 			this.xZoomToolStripMenuItem.Name = "xZoomToolStripMenuItem";
 			this.xZoomToolStripMenuItem.ShowShortcutKeys = false;
-			this.xZoomToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.xZoomToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
 			this.xZoomToolStripMenuItem.Tag = "1";
 			this.xZoomToolStripMenuItem.Text = "1x zoom";
 			this.xZoomToolStripMenuItem.Click += new System.EventHandler(this.Zoom_Changed);
@@ -133,7 +135,7 @@
 			this.xZoomToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
 			this.xZoomToolStripMenuItem1.Name = "xZoomToolStripMenuItem1";
 			this.xZoomToolStripMenuItem1.ShowShortcutKeys = false;
-			this.xZoomToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+			this.xZoomToolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
 			this.xZoomToolStripMenuItem1.Tag = "1,5";
 			this.xZoomToolStripMenuItem1.Text = "1.5x zoom";
 			this.xZoomToolStripMenuItem1.Click += new System.EventHandler(this.Zoom_Changed);
@@ -144,7 +146,7 @@
 			this.xZoomToolStripMenuItem2.ForeColor = System.Drawing.Color.White;
 			this.xZoomToolStripMenuItem2.Name = "xZoomToolStripMenuItem2";
 			this.xZoomToolStripMenuItem2.ShowShortcutKeys = false;
-			this.xZoomToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+			this.xZoomToolStripMenuItem2.Size = new System.Drawing.Size(127, 22);
 			this.xZoomToolStripMenuItem2.Tag = "2";
 			this.xZoomToolStripMenuItem2.Text = "2x zoom";
 			this.xZoomToolStripMenuItem2.Click += new System.EventHandler(this.Zoom_Changed);
@@ -155,7 +157,7 @@
 			this.xZoomToolStripMenuItem3.ForeColor = System.Drawing.Color.White;
 			this.xZoomToolStripMenuItem3.Name = "xZoomToolStripMenuItem3";
 			this.xZoomToolStripMenuItem3.ShowShortcutKeys = false;
-			this.xZoomToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+			this.xZoomToolStripMenuItem3.Size = new System.Drawing.Size(127, 22);
 			this.xZoomToolStripMenuItem3.Tag = "3";
 			this.xZoomToolStripMenuItem3.Text = "3x zoom";
 			this.xZoomToolStripMenuItem3.Click += new System.EventHandler(this.Zoom_Changed);
@@ -176,10 +178,12 @@
 			this.specialTextToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
 			this.specialTextToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiAddNewSpecialTextDmon,
-            this.tsmiShowAllSpecialTextDmon});
+            this.tsmiShowAllSpecialTextDmon,
+            this.tsmiDigitsSpecialTextDmon,
+            this.tsmiVariablesSpecialTextDmon});
 			this.specialTextToolStripMenuItem.ForeColor = System.Drawing.Color.White;
 			this.specialTextToolStripMenuItem.Name = "specialTextToolStripMenuItem";
-			this.specialTextToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+			this.specialTextToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.specialTextToolStripMenuItem.Text = "Special Text";
 			// 
 			// tsmiAddNewSpecialTextDmon
@@ -214,6 +218,7 @@
 			// 
 			// rtbMainNotepadDmon
 			// 
+			this.rtbMainNotepadDmon.AcceptsTab = true;
 			this.rtbMainNotepadDmon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
 			this.rtbMainNotepadDmon.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.rtbMainNotepadDmon.Font = new System.Drawing.Font("Trebuchet MS", 12F);
@@ -222,9 +227,11 @@
 			this.rtbMainNotepadDmon.Name = "rtbMainNotepadDmon";
 			this.rtbMainNotepadDmon.Size = new System.Drawing.Size(795, 418);
 			this.rtbMainNotepadDmon.TabIndex = 2;
+			this.rtbMainNotepadDmon.Tag = "None";
 			this.rtbMainNotepadDmon.Text = "";
 			this.rtbMainNotepadDmon.SelectionChanged += new System.EventHandler(this.Selection_Changed);
 			this.rtbMainNotepadDmon.TextChanged += new System.EventHandler(this.Text_Written);
+			this.rtbMainNotepadDmon.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ShortCut_Down);
 			this.rtbMainNotepadDmon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Text_Writing);
 			// 
 			// pnlColorAquaDmon
@@ -315,6 +322,32 @@
 			this.pnlColorYellowDmon.MouseEnter += new System.EventHandler(this.Color_Hover);
 			this.pnlColorYellowDmon.MouseLeave += new System.EventHandler(this.Color_NoMoreHover);
 			// 
+			// tsmiDigitsSpecialTextDmon
+			// 
+			this.tsmiDigitsSpecialTextDmon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+			this.tsmiDigitsSpecialTextDmon.Checked = true;
+			this.tsmiDigitsSpecialTextDmon.CheckOnClick = true;
+			this.tsmiDigitsSpecialTextDmon.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.tsmiDigitsSpecialTextDmon.ForeColor = System.Drawing.Color.White;
+			this.tsmiDigitsSpecialTextDmon.Name = "tsmiDigitsSpecialTextDmon";
+			this.tsmiDigitsSpecialTextDmon.Size = new System.Drawing.Size(200, 22);
+			this.tsmiDigitsSpecialTextDmon.Tag = "0";
+			this.tsmiDigitsSpecialTextDmon.Text = "Digits";
+			this.tsmiDigitsSpecialTextDmon.CheckedChanged += new System.EventHandler(this.TurningSpecialText_CheckedChanged);
+			// 
+			// tsmiVariablesSpecialTextDmon
+			// 
+			this.tsmiVariablesSpecialTextDmon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+			this.tsmiVariablesSpecialTextDmon.Checked = true;
+			this.tsmiVariablesSpecialTextDmon.CheckOnClick = true;
+			this.tsmiVariablesSpecialTextDmon.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.tsmiVariablesSpecialTextDmon.ForeColor = System.Drawing.Color.White;
+			this.tsmiVariablesSpecialTextDmon.Name = "tsmiVariablesSpecialTextDmon";
+			this.tsmiVariablesSpecialTextDmon.Size = new System.Drawing.Size(200, 22);
+			this.tsmiVariablesSpecialTextDmon.Tag = "1";
+			this.tsmiVariablesSpecialTextDmon.Text = "Variables";
+			this.tsmiVariablesSpecialTextDmon.CheckedChanged += new System.EventHandler(this.TurningSpecialText_CheckedChanged);
+			// 
 			// frmMainDmon
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,6 +403,8 @@
 		private System.Windows.Forms.Panel pnlColorRedDmon;
 		private System.Windows.Forms.Panel pnlColorVioletDmon;
 		private System.Windows.Forms.Panel pnlColorYellowDmon;
+		private System.Windows.Forms.ToolStripMenuItem tsmiDigitsSpecialTextDmon;
+		private System.Windows.Forms.ToolStripMenuItem tsmiVariablesSpecialTextDmon;
 	}
 }
 
